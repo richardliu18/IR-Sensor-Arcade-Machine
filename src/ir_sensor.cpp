@@ -22,7 +22,7 @@ uint32_t updateIRsensor(){
         Serial.println(value, HEX);
     }
 
-    IrReceiver.resume(); // ALWAYS after decode
+    IrReceiver.resume(); 
 
     return value;
 }

@@ -2,6 +2,8 @@
 #include <display.h>
 #include <ir_sensor.h>
 #include <tv_logic.h>
+#include <wifi_manager.h>
+#include <weather.h>
 
 const int RECV_PIN = 23;
 
@@ -12,6 +14,7 @@ void setup() {
   Serial.begin(115200);
 
   initDisplay();
+  connectWiFi();
 
   initIRsensor(RECV_PIN);
 

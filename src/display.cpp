@@ -4,6 +4,7 @@
 #include "display.h"
 #include <fish.h>
 #include <dvd.h>
+#include <weather.h>
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -92,7 +93,10 @@ void updateDisplay(int channel, bool interactButton){
         showDVD();
         display.display();
         break;
-
+        
+        case 3:
+        showWeather();
+        display.display();
     }
  
 
