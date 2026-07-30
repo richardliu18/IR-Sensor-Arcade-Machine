@@ -3,6 +3,7 @@
 #include <ArduinoJson.h>
 #include "wifi_manager.h"
 #include "display.h"
+#include "animation.h"
 
 WeatherData currentWeather;
 
@@ -57,5 +58,21 @@ void showWeather(){
 
     display.print("Conditions: ");
     display.println(currentWeather.condition);
+
+    showWeatherAnimation(currentWeather.condition);
+}
+
+void showWeatherAnimation(String condition){
+
+    if(condition.equals("Clouds")){
+        showClouds();
+    }
+    if(condition.equals("Rain")){
+        showRain();
+    }
+    else{
+        return;
+    }
+
 
 }

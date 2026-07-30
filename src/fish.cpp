@@ -10,7 +10,7 @@ int vx = 1;
 int vy = 0;
 
 unsigned long lastThink = 0;
-int frame = 0;
+static int frame = 0;
 unsigned long lastFrameTime = 0;
 
 bool foodActive = false;

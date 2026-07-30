@@ -10,5 +10,6 @@ struct WeatherData {
 void updateWeather();
 WeatherData getWeatherData();
 void showWeather();
+void showWeatherAnimation(String condition);
 
 #endif

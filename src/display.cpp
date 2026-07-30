@@ -5,6 +5,8 @@
 #include <fish.h>
 #include <dvd.h>
 #include <weather.h>
+#include <animation.h>
+#include <menu.h>
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -18,6 +20,8 @@ unsigned long titleStartTime = 0;
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 
+int currentTime;
+
 
 void initDisplay(){
     if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)){
@@ -26,9 +30,9 @@ void initDisplay(){
 
     display.clearDisplay();
     display.setTextColor(SSD1306_WHITE);
-    display.setCursor(10,20);
-    display.setTextSize(2);
-    display.println("Mini TV");
+
+    currentTime = millis();
+    
     display.display();
 }
 
@@ -86,6 +90,7 @@ void updateDisplay(int channel, bool interactButton){
         display.setCursor(5,20);
         display.setTextSize(2);
         display.println("Hello!");
+        showHelloCat();
         display.display();
         break;
 
@@ -97,6 +102,13 @@ void updateDisplay(int channel, bool interactButton){
         case 3:
         showWeather();
         display.display();
+        break;
+
+        case 4:
+        drawMenu();
+        display.display();
+        break;
+        
     }
  
 

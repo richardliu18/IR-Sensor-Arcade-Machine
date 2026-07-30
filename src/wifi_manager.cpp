@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <WiFi.h>
+#include "animation.h"
 
 
 const char* ssid = "DeepBlue";
@@ -15,6 +16,7 @@ void connectWiFi(){
     while (WiFi.status() != WL_CONNECTED){ //wireless connection
         delay(500);
         Serial.print(".");
+        // showWifi();
     }
 
     Serial.println("Connected!");
