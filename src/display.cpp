@@ -7,6 +7,9 @@
 #include <weather.h>
 #include <animation.h>
 #include <menu.h>
+#include <roboEyes.h>
+
+
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -21,6 +24,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 
 int currentTime;
+bool roboEyesInitialized = false;
 
 
 void initDisplay(){
@@ -70,7 +74,6 @@ void updateDisplay(int channel, bool interactButton){
         }
     }
 
-    display.clearDisplay();
 
 
     switch(channel){
@@ -79,6 +82,7 @@ void updateDisplay(int channel, bool interactButton){
         break;
 
         case 0:
+        display.clearDisplay();
         showFish();
         if(interactButton){
             spawnFood();
@@ -87,6 +91,7 @@ void updateDisplay(int channel, bool interactButton){
         break;
 
         case 1:
+        display.clearDisplay();
         display.setCursor(5,20);
         display.setTextSize(2);
         display.println("Hello!");
@@ -95,20 +100,34 @@ void updateDisplay(int channel, bool interactButton){
         break;
 
         case 2:
+        display.clearDisplay();
         showDVD();
         display.display();
         break;
         
         case 3:
+        display.clearDisplay();
         showWeather();
         display.display();
         break;
 
         case 4:
+        display.clearDisplay();
         drawMenu();
         display.display();
         break;
-        
+
+        case 5:
+        if (!roboEyesInitialized) {
+        initRoboEyes();
+        roboEyesInitialized = true;
+        }
+        if(interactButton){
+            roboEyesLaugh();
+        }
+        updateRoboEyes();
+        display.display();
+        break;
     }
  
 
