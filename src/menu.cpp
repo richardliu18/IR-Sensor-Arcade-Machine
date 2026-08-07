@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "display.h"
 #include "input.h"
+#include "pong.h"
 
 int selected = 0;
 const int upThreshold = 1000;
@@ -9,10 +10,12 @@ const int neutralLow = 1800;
 const int neutralHigh = 2100;
 
 const char* items[] = {
-    "Snake",
+    "GAME MENU",
     "Pong",
     "Flappy Bird"
 };
+
+GameState currentState = MENU;
 
 int menuSize = 3;
 
@@ -32,9 +35,13 @@ void updateMenu() {
     if (selected < 0) selected = menuSize - 1;
 
     if (selected >= menuSize) selected = 0;
-
+    
     if (isPressed()) {
-        // launch game
+
+        if(selected==1){
+            currentState = PONG;
+            initPong();
+        }
     }
 }
 

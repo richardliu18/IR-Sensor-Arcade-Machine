@@ -4,6 +4,7 @@
 #include <tv_logic.h>
 #include <wifi_manager.h>
 #include <weather.h>
+#include "input.h"
 
 const int RECV_PIN = 23;
 
@@ -15,6 +16,7 @@ void setup() {
 
   initDisplay();
   connectWiFi();
+  initInput();
 
   initIRsensor(RECV_PIN);
 

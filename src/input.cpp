@@ -1,13 +1,15 @@
 #include <Arduino.h>
 
 
-int xPin;
-int yPin;
-int buttonPin;
+int xPin = 35;
+int yPin = 34;
+int buttonPin = 32;
 
 int xVal;
 int yVal;
 bool buttonState;
+
+static bool lastState = HIGH;
 
 
 void initInput(){
@@ -24,7 +26,7 @@ int getX(){
 }
 
 int getY(){
-
+    
     yVal = analogRead(yPin);
     return yVal;
 
@@ -32,7 +34,16 @@ int getY(){
 
 bool isPressed(){
 
-    buttonState = digitalRead(buttonPin);
-    return buttonState;
+    static bool lastState = HIGH;
+
+    bool currentState = digitalRead(buttonPin);
+
+    if(lastState == HIGH && currentState == LOW){
+        lastState = currentState;
+        return true;
+    }
+
+    lastState = currentState;
+    return false;
 
 }

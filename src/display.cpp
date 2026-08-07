@@ -8,6 +8,9 @@
 #include <animation.h>
 #include <menu.h>
 #include <roboEyes.h>
+#include "pong.h"
+#include "input.h"
+#include "pong.h"
 
 
 
@@ -113,7 +116,19 @@ void updateDisplay(int channel, bool interactButton){
 
         case 4:
         display.clearDisplay();
-        drawMenu();
+        switch (currentState) {
+            case MENU:
+                drawMenu();
+                break;
+            case PONG:
+                updatePong();
+                drawPong();
+                break;
+            case PONGEND:
+                endScreen();
+                break;
+
+    }
         display.display();
         break;
 
