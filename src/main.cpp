@@ -18,6 +18,8 @@ void setup() {
   connectWiFi();
   initInput();
 
+  
+
   initIRsensor(RECV_PIN);
 
 }
@@ -31,6 +33,7 @@ void loop(){
   
   updateDisplay(getCurrentChannel(), getInteractButton());
 
+  Serial.println(getX());
 }
 
 

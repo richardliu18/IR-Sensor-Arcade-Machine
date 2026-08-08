@@ -2,17 +2,18 @@
 #include "display.h"
 #include "input.h"
 #include "pong.h"
+#include "snake.h"
 
 int selected = 0;
-const int upThreshold = 1000;
-const int downThreshold = 4000;
-const int neutralLow = 1800;
-const int neutralHigh = 2100;
+// const int upThreshold = 1000;
+// const int downThreshold = 4000;
+// const int neutralLow = 1800;
+// const int neutralHigh = 2100;
 
 const char* items[] = {
     "GAME MENU",
     "Pong",
-    "Flappy Bird"
+    "Snake"
 };
 
 GameState currentState = MENU;
@@ -41,6 +42,10 @@ void updateMenu() {
         if(selected==1){
             currentState = PONG;
             initPong();
+        }
+        if(selected==2){
+            currentState = SNAKE;
+            initSnake();
         }
     }
 }

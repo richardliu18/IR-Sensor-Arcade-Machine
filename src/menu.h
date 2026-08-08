@@ -5,6 +5,7 @@ enum GameState {
     PONG,
     PONGEND,
     SNAKE,
+    SNAKEEND,
     FLAPPY
 };
 

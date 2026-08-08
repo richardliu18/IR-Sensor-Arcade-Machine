@@ -26,7 +26,7 @@ void drawPong();
 int getPlayerScore();
 int getAIScore();
 void exitPong();
-void endScreen();
+void pongEndScreen();
 
 
 #endif

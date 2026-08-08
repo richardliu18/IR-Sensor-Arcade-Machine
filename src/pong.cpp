@@ -13,10 +13,7 @@ Ball ball;
 int playerScore = 0;
 int aiScore = 0;
 
-const int upThreshold = 1000;
-const int downThreshold = 4000;
-const int neutralLow = 1800;
-const int neutralHigh = 2100;
+
 
 #define AI_SPEED 1   // lower = easier, higher = harder
 
@@ -38,7 +35,7 @@ void updatePong() {
     }
 
     if(aiScore >= 10 || playerScore >= 10){
-        endScreen();
+        currentState = PONGEND;
         return;
     }
 
@@ -178,14 +175,12 @@ void exitPong() {
     playerScore = 0;
     aiScore = 0;
 }
-void endScreen(){
+void pongEndScreen(){
 
     if (isPressed()) {
         exitPong();
         return;
     }
-
-    currentState = PONGEND;
     
      // Draw scores
     display.setTextSize(3);

@@ -11,6 +11,7 @@
 #include "pong.h"
 #include "input.h"
 #include "pong.h"
+#include "snake.h"
 
 
 
@@ -125,9 +126,15 @@ void updateDisplay(int channel, bool interactButton){
                 drawPong();
                 break;
             case PONGEND:
-                endScreen();
+                pongEndScreen();
                 break;
-
+            case SNAKE:
+                updateSnake();
+                drawSnake();
+                break;
+            case SNAKEEND:
+                snakeEndScreen();
+                break;
     }
         display.display();
         break;
