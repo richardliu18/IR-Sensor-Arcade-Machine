@@ -140,6 +140,9 @@ void drawSnake() {
         grid_size,
         WHITE
     );
+    display.setTextSize(1);
+    display.setCursor(45, 0);
+    display.print("SNAKE");
    
 }
 void snakeEndScreen(){

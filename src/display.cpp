@@ -15,6 +15,7 @@
 #include "debug.h"
 #include "breakout.h"
 #include "reaction.h"
+#include "sketch.h"
 
 
 
@@ -113,27 +114,6 @@ void updateDisplay(int channel, bool interactButton){
 
         case 1:
         display.clearDisplay();
-        display.setCursor(5,20);
-        display.setTextSize(2);
-        display.println("Hello!");
-        showHelloCat();
-        display.display();
-        break;
-
-        case 2:
-        display.clearDisplay();
-        showDVD();
-        display.display();
-        break;
-        
-        case 3:
-        display.clearDisplay();
-        showWeather();
-        display.display();
-        break;
-
-        case 4:
-        display.clearDisplay();
         switch (currentState) {
             case MENU:
                 drawMenu();
@@ -163,7 +143,32 @@ void updateDisplay(int channel, bool interactButton){
                 updateReaction();
                 drawReaction();
                 break;
+            case SKETCH:
+                updateSketch();
+                drawSketch();
+                break;
     }
+        display.display();
+        break;
+
+        case 2:
+        display.clearDisplay();
+        showDVD();
+        display.display();
+        break;
+        
+        case 3:
+        display.clearDisplay();
+        showWeather();
+        display.display();
+        break;
+
+        case 4:
+        display.clearDisplay();
+        display.setCursor(5,20);
+        display.setTextSize(2);
+        display.println("Hello!");
+        showHelloCat();
         display.display();
         break;
 

@@ -34,7 +34,7 @@ void updatePong() {
         return;
     }
 
-    if(aiScore >= 10 || playerScore >= 10){
+    if(aiScore >= 5 || playerScore >= 5){
         currentState = PONGEND;
         return;
     }
@@ -159,7 +159,8 @@ void drawPong(){
     display.setCursor(SCREEN_WIDTH - 30, 0);
     display.print(aiScore);
 
-    
+    display.setCursor(50, 0);
+    display.print("PONG");
 }
 int getPlayerScore() {
     return playerScore;
