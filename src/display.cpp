@@ -14,6 +14,7 @@
 #include "snake.h"
 #include "debug.h"
 #include "breakout.h"
+#include "reaction.h"
 
 
 
@@ -158,6 +159,10 @@ void updateDisplay(int channel, bool interactButton){
             case BREAKOUTEND:
                 breakoutEndScreen();
                 break;
+            case REACTION:
+                updateReaction();
+                drawReaction();
+                break;
     }
         display.display();
         break;
@@ -167,7 +172,7 @@ void updateDisplay(int channel, bool interactButton){
         initRoboEyes();
         roboEyesInitialized = true;
         }
-        if(interactButton){
+        if(interactButton||isPressed()){
             roboEyesLaugh();
         }
         updateRoboEyes();

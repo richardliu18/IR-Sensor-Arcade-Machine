@@ -24,7 +24,7 @@ void initPong() {
 
     ball.x = SCREEN_WIDTH / 2;
     ball.y = SCREEN_HEIGHT / 2;
-    ball.vx = 2;
+    ball.vx = 2.2;
     ball.vy = 0.8;
 }
 void updatePong() {

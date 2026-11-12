@@ -4,6 +4,7 @@
 #include "pong.h"
 #include "snake.h"
 #include "breakout.h"
+#include "reaction.h"
 
 int selected = 0;
 // const int upThreshold = 1000;
@@ -15,12 +16,13 @@ const char* items[] = {
     "GAME MENU",
     "Pong",
     "Snake",
-    "Breakout"
+    "Breakout",
+    "Reaction"
 };
 
 GameState currentState = MENU;
 
-int menuSize = 4;
+int menuSize = 5;
 
 void updateMenu() {
 
@@ -52,6 +54,10 @@ void updateMenu() {
         if(selected==3){
             currentState = BREAKOUT;
             initBreakout();
+        }
+        if(selected==4){
+            currentState = REACTION;
+            initReaction();
         }
     }
 }

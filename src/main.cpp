@@ -5,6 +5,7 @@
 #include <wifi_manager.h>
 #include <weather.h>
 #include "input.h"
+#include <EEPROM.h>
 
 const int RECV_PIN = 3;
 

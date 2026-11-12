@@ -7,7 +7,11 @@ enum GameState {
     SNAKE,
     SNAKEEND,
     BREAKOUT,
-    BREAKOUTEND
+    BREAKOUTEND,
+    REACTION,
+    REACTIONEND,
+    SKETCH,
+    SKETCHEND,
 };
 
 extern GameState currentState;
