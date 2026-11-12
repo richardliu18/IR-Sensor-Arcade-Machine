@@ -6,7 +6,7 @@
 #include <weather.h>
 #include "input.h"
 
-const int RECV_PIN = 23;
+const int RECV_PIN = 3;
 
 uint32_t code;
 
@@ -32,8 +32,13 @@ void loop(){
   TV_LOGIC(code);
   
   updateDisplay(getCurrentChannel(), getInteractButton());
+  // Serial.println(digitalRead(RECV_PIN));
 
-  Serial.println(getX());
+
+  // Serial.print("X: ");
+  // Serial.println(getX());
+  // Serial.print("Y: ");
+  // Serial.println(getY());
 }
 
 

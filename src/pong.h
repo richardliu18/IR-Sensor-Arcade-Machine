@@ -11,6 +11,7 @@
 
 struct Paddle {
     int y;
+    int x;
 };
 
 struct Ball {

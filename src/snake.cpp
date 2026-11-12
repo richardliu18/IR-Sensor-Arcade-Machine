@@ -9,7 +9,7 @@
 int highScore = EEPROM.read(SCORE_ADDR);
 
 
-const int grid_size = 4;
+const int grid_size = 8;
 const int max_length = 100;
 
 const int screen_width = 128;

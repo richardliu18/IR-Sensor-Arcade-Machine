@@ -6,7 +6,8 @@ enum GameState {
     PONGEND,
     SNAKE,
     SNAKEEND,
-    FLAPPY
+    BREAKOUT,
+    BREAKOUTEND
 };
 
 extern GameState currentState;

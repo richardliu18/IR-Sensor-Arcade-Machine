@@ -104,10 +104,10 @@ void updateFish(){
     fishX+=vx;
     fishY+=vy;
 
-if(fishX<0 || fishX>112){
+    if(fishX<=0 || fishX>=112){
         vx=-vx; // bounce off sides
     }
-    if(fishY<10 || fishY>48){
+    if(fishY<=0 || fishY>=48){
         vy=-vy; // bounce off top and bottom
     }
     if(millis() - lastThink > random(2000,4000)){ //random thinking time

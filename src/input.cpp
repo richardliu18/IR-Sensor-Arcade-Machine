@@ -1,9 +1,9 @@
 #include <Arduino.h>
 
 
-int xPin = 35;
-int yPin = 34;
-int buttonPin = 32;
+int xPin = 7;
+int yPin = 1;
+int buttonPin = 9;
 
 int xVal;
 int yVal;

@@ -12,11 +12,11 @@
 #include "input.h"
 #include "pong.h"
 #include "snake.h"
+#include "debug.h"
+#include "breakout.h"
 
 
 
-#define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 64
 
 
 int lastChannel = -999;
@@ -32,6 +32,10 @@ bool roboEyesInitialized = false;
 
 
 void initDisplay(){
+
+    Wire.begin(D4, D5);
+    Wire.setClock(400000);
+
     if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)){
         Serial.println("Display Offline");
     }
@@ -45,6 +49,14 @@ void initDisplay(){
 }
 
 void updateDisplay(int channel, bool interactButton){
+
+    static unsigned long lastFrame = 0;
+
+    if (millis() - lastFrame < 33) {
+        return;
+    }
+
+    lastFrame = millis();
 
 
     if(channel != lastChannel && channel !=-1){
@@ -86,11 +98,15 @@ void updateDisplay(int channel, bool interactButton){
         break;
 
         case 0:
+
         display.clearDisplay();
+
         showFish();
-        if(interactButton){
+        if(interactButton || isPressed()){
+            Serial.println("Spawn food");
             spawnFood();
         }
+
         display.display();
         break;
 
@@ -135,6 +151,13 @@ void updateDisplay(int channel, bool interactButton){
             case SNAKEEND:
                 snakeEndScreen();
                 break;
+            case BREAKOUT:
+                updateBreakout();
+                drawBreakout();
+                break;
+            case BREAKOUTEND:
+                breakoutEndScreen();
+                break;
     }
         display.display();
         break;
@@ -150,6 +173,13 @@ void updateDisplay(int channel, bool interactButton){
         updateRoboEyes();
         display.display();
         break;
+
+        case 9:
+        display.clearDisplay();
+        debugUpdate();
+        display.display();
+        break;
+
     }
  
 

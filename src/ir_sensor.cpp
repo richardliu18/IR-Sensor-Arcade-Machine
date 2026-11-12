@@ -3,7 +3,7 @@
 void initIRsensor(int RECV_PIN){
 
     IrReceiver.begin(RECV_PIN, ENABLE_LED_FEEDBACK);
-    Serial.println("IR REciever Ready. Press button on remote");
+    Serial.println("IR Reciever Ready. Press button on remote");
     
 }
 
@@ -21,7 +21,7 @@ uint32_t updateIRsensor(){
         Serial.print("Hex Code: 0x");
         Serial.println(value, HEX);
     }
-
+    
     IrReceiver.resume(); 
 
     return value;
